@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Payment - PrintEase</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="payment.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Main background particles -->
+  <div id="particles-js"></div>
+  
+  <header class="header">
+    <div class="logo">
+      <h1 class="logo-title">Printease</h1>
+      <p class="logo-subtitle">REVOLUTIONIZING PRINTING</p>
+    </div>
+    <nav>
+      <div class="profile-container">
+        <button id="profile-btn" class="btn">Profile <i class="fas fa-chevron-down"></i></button>
+        <div class="dropdown-content">
+          <a href="dashboard.html" id="dashboard-link">Dashboard</a>
+          <a href="#" id="logout-link">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="payment-container">
+      <div class="payment-card">
+        <div class="payment-header">
+          <i class="fas fa-qrcode payment-icon"></i>
+          <h2>Complete Your Payment</h2>
+        </div>
+        
+        <div class="payment-qr-container">
+          <img src="payment_qr.png" alt="Payment QR" class="payment-qr">
+          <div class="payment-amount" id="paymentAmount">₹ <span id="amountValue">0.00</span></div>
+        </div>
+        
+        <div class="payment-instructions">
+          <p>Please scan the QR code with any UPI app to complete your payment.</p>
+          <p class="highlight"><i class="fas fa-info-circle"></i> Your print job will be processed immediately after payment confirmation.</p>
+        </div>
+
+        <div class="screenshot-upload">
+          <label for="payment-screenshot" class="upload-label">
+            <i class="fas fa-upload"></i> Upload Payment Screenshot
+            <input type="file" id="payment-screenshot" accept="image/*" onchange="handleScreenshotUpload(event)" style="display: none;">
+          </label>
+          <div id="screenshot-preview" class="screenshot-preview"></div>
+        </div>
+        
+        <button class="btn confirm-btn" onclick="showSuccess()" id="confirm-payment-btn" disabled>
+          <i class="fas fa-check-circle"></i> Confirm Payment & Order
+        </button>
+        
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle success-icon"></i>
+          <p>Payment successful! Redirecting to your dashboard...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="copyright">
+      <p>PRINTEASE | Copyright © 2025 all rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Function to get payment amount from URL parameters or other source
+    function getPaymentAmount() {
+      // You can retrieve the amount from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const amount = urlParams.get('amount');
+      
+      // If amount exists in URL, use it; otherwise use a default (can be changed later)
+      if (amount && !isNaN(parseFloat(amount))) {
+        return parseFloat(amount).toFixed(2);
+      }
+      
+      // Default amount (0.00) - this will be replaced by your calculation logic
+      return "0.00";
+    }
+    
+    // Set the payment amount on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const amountValue = getPaymentAmount();
+      document.getElementById('amountValue').textContent = amountValue;
+      
+      // You can also update the QR code based on the amount if needed
+      // updateQRCode(amountValue);
+    });
+    
+    // Function to show success message and redirect
+    function handleScreenshotUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const preview = document.getElementById('screenshot-preview');
+          preview.innerHTML = `<img src="${e.target.result}" alt="Payment Screenshot">`;
+          document.getElementById('confirm-payment-btn').disabled = false;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function showSuccess() {
+      document.getElementById("successMessage").classList.add("show");
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 2500);
+    }
+    
+    // This is a placeholder for your future calculation logic
+    // function calculatePaymentAmount() {
+    //   // Your calculation logic will go here
+    //   // For example: pages * costPerPage + additionalFees
+    //   return calculatedAmount;
+    // }
+  </script>
+</body>
+</html>
