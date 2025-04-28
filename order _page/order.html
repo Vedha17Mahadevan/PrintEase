@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order - PrintEase</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo-title">Printease</h1>
+            <p class="logo-subtitle">REVOLUTIONIZING PRINTING</p>
+        </div>
+        <button class="home-btn" onclick="location.href='index.html'"><i class="fas fa-home"></i> HOME</button>
+    </header>
+
+    <main>
+        <section class="order-section">
+            <div class="section-header">
+                <h2><i class="fas fa-clipboard-list"></i> Place Your Order</h2>
+                <p>Upload your files, select your print preferences, and place your order!</p>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-steps">
+                <div class="step active">
+                    <div class="step-icon"><i class="fas fa-file-upload"></i></div>
+                    <div class="step-label">Upload</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
+                    <div class="step-label">Options</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-check"></i></div>
+                    <div class="step-label">Confirm</div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <form id="order-form" action="#" method="post">
+                <div class="panel-container">
+                    <!-- File Upload Section -->
+                    <div class="panel active" id="upload-panel">
+                        <h3><i class="fas fa-cloud-upload-alt"></i> Upload Files</h3>
+                        <div class="file-upload">
+                            <input type="file" id="file-input" name="files" multiple>
+                            <div class="drop-area" id="drop-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & Drop Files Here</p>
+                                <span>or</span>
+                                <label for="file-input" class="choose-file">Browse Files</label>
+                            </div>
+                            <div class="file-list" id="file-list">
+                                <div class="no-files">No files selected</div>
+                            </div>
+                        </div>
+                        <div class="panel-nav">
+                            <button type="button" class="next-btn" onclick="nextPanel()">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Print Options Panel -->
+                    <div class="panel" id="options-panel">
+                        <h3><i class="fas fa-cog"></i> Print Options</h3>
+                        <div class="options-grid">
+                            <div class="option-group">
+                                <label for="print-option">Print Type</label>
+                                <div class="select-wrapper">
+                                    <select id="print-option" name="print-type" required>
+                                        <option value="" disabled selected>Select Print Type</option>
+                                        <option value="black-white">Black & White</option>
+                                        <option value="color">Color</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <label for="binding-option">Binding Type</label>
+                                <div class="select-wrapper">
+                                    <select id="binding-option" name="binding-type" required>
+                                        <option value="" disabled selected>Select Binding</option>
+                                        <option value="Spiral">Spiral Bind</option>
+                                        <option value="Soft">Soft Bind</option>
+                                        <option value="Hard">Hard Bind</option>
+                                        <option value="None">None</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <label for="other-option">Document Type</label>
+                                <div class="select-wrapper">
+                                    <select id="other-option" name="document-type" required>
+                                        <option value="" disabled selected>Select Type</option>
+                                        <option value="document">Standard Document</option>
+                                        <option value="report">Project Reports</option>
+                                        <option value="notes">Notes & Study Material</option>
+                                        <option value="certificate">Certificate</option>
+                                        <option value="card">Card</option>
+                                        <option value="banner">Banner</option>
+                                        <option value="poster">Poster</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <label for="size-format">Size Format</label>
+                                <div class="select-wrapper">
+                                    <select id="size-format" name="size-format" onchange="checkCustomSize()" required>
+                                        <option value="" disabled selected>Select Format</option>
+                                        <option value="A0">A0</option>
+                                        <option value="A1">A1</option>
+                                        <option value="A2">A2</option>
+                                        <option value="A3">A3</option>
+                                        <option value="A4">A4</option>
+                                        <option value="A5">A5</option>
+                                        <option value="custom">Custom Size</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+
+                            <div class="option-group number-group">
+                                <label for="copies">Number of Copies:</label>
+                                <div class="number-input">
+                                    <button type="button" class="decrease-btn"><i class="fas fa-minus"></i></button>
+                                    <input type="number" id="copies" name="copies" min="1" value="1" required>
+                                    <button type="button" class="increase-btn"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                              
+                            <!-- For pages -->
+                            <div class="option-group number-group">
+                                <label for="pages">Estimated Pages per File:</label>
+                                <div class="number-input">
+                                    <button type="button" class="decrease-btn"><i class="fas fa-minus"></i></button>
+                                    <input type="number" id="pages" name="pages" min="1" value="1" required>
+                                    <button type="button" class="increase-btn"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="option-group full-width">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="double-side" name="double-side">
+                                    <label for="double-side">Double-sided Printing</label>
+                                    <input type="checkbox" id="Confidential" name="Confidential">
+                                    <label for="Confidential">Confidential</label>
+                                </div>
+                            </div>
+
+                            <div class="option-group full-width">
+                                <div style="display: flex; gap: 20px;">
+                                    <div style="flex: 1;">
+                                        <label for="other-details">Additional Instructions</label>
+                                        <textarea id="other-details" name="other-details" placeholder="Add any special instructions or requirements here..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-nav">
+                            <button type="button" class="back-btn" onclick="prevPanel()"><i class="fas fa-arrow-left"></i> Back</button>
+                            <button type="button" class="next-btn" onclick="validateAndNext()">Review Order <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Verification Panel -->
+                    <div class="panel" id="verification-panel">
+                        <h3><i class="fas fa-check-circle"></i> Review Your Order</h3>
+                        <div class="order-summary" id="order-summary">
+                            <div class="summary-card">
+                                <div class="summary-header">
+                                    <i class="fas fa-file-alt"></i>
+                                    <h4>Order Summary</h4>
+                                </div>
+                                <div class="summary-content">
+                                    <div class="summary-item">
+                                        <span class="item-label">Files:</span>
+                                        <span class="item-value" id="summary-files">No files selected</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="item-label">Print Type:</span>
+                                        <span class="item-value" id="summary-print">Not selected</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="item-label">Binding:</span>
+                                        <span class="item-value" id="summary-binding">Not selected</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="item-label">Document Type:</span>
+                                        <span class="item-value" id="summary-document">Not selected</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="item-label">Size:</span>
+                                        <span class="item-value" id="summary-size">A4</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="item-label">Copies:</span>
+                                        <span class="item-value" id="summary-copies">1</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="item-label">Pages:</span>
+                                        <span class="item-value" id="summary-pages">1</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="item-label">Double-sided:</span>
+                                        <span class="item-value" id="summary-double">No</span>
+                                    </div>
+                                    <div class="summary-item full-width">
+                                        <span class="item-label">Additional Instructions:</span>
+                                        <span class="item-value" id="summary-instructions">None</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-nav">
+                            <button type="button" class="back-btn" onclick="prevPanel()"><i class="fas fa-arrow-left"></i> Back</button>
+                            <button type="submit" class="confirm-btn" id="submit-order"><i class="fas fa-paper-plane"></i> Submit Order</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            
+
+            <!-- Custom Size Dialog -->
+            <div id="custom-size-dialog" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal" onclick="closeCustomSize()">&times;</span>
+                    <h4><i class="fas fa-ruler-combined"></i> Enter Custom Size</h4>
+                    <div class="custom-size-inputs">
+                        <div class="input-group">
+                            <label for="custom-width">Width</label>
+                            <div class="size-input">
+                                <input type="number" id="custom-width" name="custom-width" min="1" value="20">
+                                <span class="unit">cm</span>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="custom-height">Height</label>
+                            <div class="size-input">
+                                <input type="number" id="custom-height" name="custom-height" min="1" value="30">
+                                <span class="unit">cm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="ok-btn" onclick="saveCustomSize()">Apply Size</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content confirmation">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h4>Order Submitted!</h4>
+            <p>Your order has been successfully placed. You will receive a confirmation email shortly.</p>
+            <button type="button" class="ok-btn" onclick="closeConfirmation()">OK</button>
+        </div>
+    </div>
+
+    <div class="summary-item full-width">
+    <button type="button" id="view-secure-summary" class="view-btn">View Security Details</button>
+    <div id="secure-summary" class="hidden">
+        <p><strong>Security Key:</strong> <span id="summary-security-key">N/A</span></p>
+        <p><strong>Security Question:</strong> <span id="summary-security-question">N/A</span></p>
+        <p><strong>Security Answer:</strong> <span id="summary-security-answer">N/A</span></p>
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>PRINTEASE</h2>
+                <p>Mar Baselios College of Engineering and Technology, Nalanchira, Trivandrum</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://discord.com/"><i class="fab fa-discord"></i></a>
+                <a href="https://x.com/?lang=en"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <p class="copyright">PRINTEASE | Copyright © 2025 all rights reserved</p>
+    </footer>
+
+    <script src="script2.js"></script>
+</body>
+</html>
