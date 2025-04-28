@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintEase - Revolutionizing Printing</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Main background particles -->
+  <div id="particles-js"></div>
+  
+  <header class="header">
+    <div class="logo">
+      <h1 class="logo-title">Printease</h1>
+      <p class="logo-subtitle">REVOLUTIONIZING PRINTING</p>
+    </div>
+    <nav class="button-group">
+      <button id="hero-order-btn" class="btn">Place Order</button>
+      
+      <div class="profile-container">
+        <button id="profile-btn" class="btn">Profile <i class="fas fa-chevron-down"></i></button>
+        <div class="dropdown-content">
+          <a href="dashboard.html" id="dashboard-link" style="display: none;">Dashboard</a>
+          <a href="login.html" id="login-link">Login</a>
+          <a href="signup.html" id="signup-link">Sign Up</a>
+          <a href="#" id="logout-link" style="display: none;">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>Tired of Long Queues & Printing Hassles?</h2>
+          <p>Bringing printing to your fingertips!<br>
+            Printing made simple, fast, and hassle-free.</p>
+          <button id="hero-order-btn" class="btn">Place Order</button>
+        </div>
+        <div class="hero-image">
+          <img src="printer.png" alt="Printer Image">
+        </div>
+      </div>
+      <div class="wave-divider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+          <path fill="#ffffff" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,100L1360,100C1280,100,1120,100,960,100C800,100,640,100,480,100C320,100,160,100,80,100L0,100Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section class="features">
+      <!-- Features section particles -->
+      <div id="features-particles" class="section-particles"></div>
+      
+      <h2>Our Services</h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <img src="feature1.png" alt="Seamless File Uploads">
+          </div>
+          <h3>Seamless File Uploads</h3>
+          <p>Upload your documents quickly with our intuitive interface</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <img src="feature2.png" alt="Real-time Tracking">
+          </div>
+          <h3>Real-time Tracking</h3>
+          <p>Know the status of your print job with instant notifications</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <img src="feature3.png" alt="Secure Payments">
+          </div>
+          <h3>Secure Payments</h3>
+          <p>Multiple payment options with bank-grade security</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <img src="feature4.png" alt="Best Rates & Discounts">
+          </div>
+          <h3>Best Rates & Discounts</h3>
+          <p>Competitive pricing with special offers for students</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <!-- Testimonials section particles -->
+      <div id="testimonials-particles" class="section-particles"></div>
+      
+      <div class="section-header">
+        <h2>What Our Users Say</h2>
+        <p>Join thousands of satisfied customers who've simplified their printing experience</p>
+      </div>
+      <div class="testimonials-container">
+        <div class="testimonial">
+          <img src="Group 9.png" alt="Testimonial 1">
+        </div>
+        <div class="testimonial">
+          <img src="Group 10.png" alt="Testimonial 2">
+        </div>
+        <div class="testimonial">
+          <img src="Group 11.png" alt="Testimonial 3">
+        </div>
+      </div>
+    </section>
+
+    <section class="assistance-centre">
+      <!-- Assistance section particles -->
+      <div id="assistance-particles" class="section-particles"></div>
+      
+      <div class="assistance-container">
+        <div class="assistance-image">
+          <img src="faq.png" alt="Assistance Illustration">
+        </div>
+        <div class="assistance-form">
+          <h2>Need Help?</h2>
+          <p>Got any questions? Let us know and we'll get back to you!</p>
+          <div class="form-group">
+            <input type="email" id="assistance-email" placeholder="Enter your email address">
+            <button class="btn" onclick="submitAssistance()">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h2>PRINTEASE</h2>
+      <p>
+        <a href="https://maps.app.goo.gl/F6oAytBTEx3MJAuG7" 
+           target="_blank" 
+           style="text-decoration: none; color: inherit;">
+          Mar Baselios College of Engineering and Technology
+        </a><br>
+        Nalanchira, Trivandrum
+      </p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact Us</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.whatsapp.com/"><img src="whatsapp.png" alt="WhatsApp"></a>
+        <a href="https://discord.com/"><img src="discord.png" alt="Discord"></a>
+        <a href="https://x.com/?lang=en"><img src="x.png" alt="X"></a>
+        <a href="https://www.youtube.com/"><img src="yt.png" alt="YouTube"></a>
+        <a href="https://in.linkedin.com/"><img src="linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>PRINTEASE | Copyright © 2025 all rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+  
+</body>
+</html>

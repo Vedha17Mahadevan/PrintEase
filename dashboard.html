@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PrintEase</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <h1 class="logo-title">PRINTEASE</h1>
+                <p class="logo-subtitle">REVOLUTIONIZING PRINTING</p>
+            </div>
+            <div class="header-buttons">
+                <button class="btn btn-primary" onclick="location.href='order.html'">PLACE ORDER</button>
+                <button class="btn btn-secondary" onclick="logout()">LOGOUT</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="welcome-card">
+                    <h2>Hello <span id="userName">&lt;USERNAME&gt;</span>,</h2>
+                    <p>Welcome !<br>
+                    Lets manage your orders, track progress,<br>
+                    and print with ease.</p>
+                    <p>Email: <span id="userEmail"></span></p>
+                </div>
+                <div class="stats-card">
+                    <h3>TOTAL NUMBER OF ORDERS :</h3>
+                    <p id="orderCount">0</p>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div class="orders-section">
+                <h3 class="section-title">YOUR ORDERS</h3>
+                <div id="ordersContainer" class="orders-grid">
+                    <!-- Orders will be dynamically populated here -->
+                    <div class="loading-message">Loading your orders...</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+              <div class="footer-logo">
+                <h2>PRINTEASE</h2>
+              <p>
+                <a href="https://maps.app.goo.gl/F6oAytBTEx3MJAuG7" 
+                   target="_blank" 
+                   style="text-decoration: none; color: inherit;">
+                  Mar Baselios College of Engineering and Technology
+                </a><br>
+                Nalanchira, Trivandrum
+              </p>
+              </div>
+              <div class="footer-links">
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+              </div>
+              <div class="social-links">
+                <a href="https://www.whatsapp.com/"><img src="whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://discord.com/"><img src="discord.png" alt="Discord"></a>
+                <a href="https://x.com/?lang=en"><img src="x.png" alt="X"></a>
+                <a href="https://www.youtube.com/"><img src="yt.png" alt="YouTube"></a>
+                <a href="https://in.linkedin.com/"><img src="linkedin.png" alt="LinkedIn"></a>
+              </div>
+            </div>
+            <div class="copyright">
+              <p>PRINTEASE | Copyright © 2025 all rights reserved</p>
+            </div>
+          </footer>
+    </div>
+
+    <script src="dashboard-scripts.js"></script>
+</body>
+</html>

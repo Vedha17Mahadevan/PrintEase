@@ -1,0 +1,18 @@
+/* Custom styles for textarea */
+#other-details {
+    min-height: 150px; /* Increased height from default */
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    resize: vertical; /* Allows user to resize vertically if needed */
+    font-family: 'Poppins', sans-serif;
+}
+
+#other-details:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(29, 120, 70, 0.1);
+}
