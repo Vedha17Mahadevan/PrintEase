@@ -52,6 +52,7 @@ This repository contains the basic implementation (MVP) of the PrintEase platfor
 ![Admin Dashboard](screenshots/admin_dashboard.png)
 
 ## Project Structure : 
+```plaintext
 printease/
 ├── admin/                     # Admin interface and views
 ├── config/                    # Configuration files (DB connection, etc.)
@@ -64,11 +65,11 @@ printease/
 ├── package.json               # Backend dependencies and scripts
 ├── server.js                  # Entry point for the Node.js backend
 └── README.md                  # Documentation (this file)
-
+```
 ## 🚀 Prerequisites : 
 Node.js (v16+) | npm | MongoDB
 
-## Installation :
+## 🔽 Installation :
 1. Clone the repository  
    ```git clone https://github.com/<your-username>/printease.git```
 2. Navigate to Project folder
@@ -81,11 +82,11 @@ Create a .env file in the root directory with the following content:
 ```JWT_SECRET=your_secret_key```
 ```PORT=5000```
 
-## Running the Application :
+## 💻 Running the Application :
 1. Start the development server:
 ```node server.js```
 
-## API EndPoints :
+## 📡 API EndPoints :
 ### Auth Roles
   - POST /api/auth/register – Register a new user
   - POST /api/auth/login – Login and receive a token
@@ -100,7 +101,7 @@ Create a .env file in the root directory with the following content:
   - POST /api/payment/upload – Upload payment screenshot
   - GET /api/payment/:orderId – Get payment information
 
-## Security Measures
+## 🔒 Security Measures
   - JWT-based authentication for session control
   - Password hashing using bcryptjs
 
@@ -115,7 +116,7 @@ Create a .env file in the root directory with the following content:
 ## Authors : 
   - Chris Thomas Abraham
   - Vedha Mahadevan
-  **- Mentor: Ms. Prathibha S Nair**
+  - ** Mentor: Ms. Prathibha S Nair**
 
 ## 📜 License
 - This project is licensed as **Proprietary – All Rights Reserved**. No part of this codebase may be copied, used, or modified without written permission from the authors.
