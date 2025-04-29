@@ -4,7 +4,7 @@
 <img src="media/Thumbnail.png">
 
 ## Idea Overview :
-PrintEase is a modern full-stack web application that simplifies printing workflows for students and local print shops. With user-friendly dashboards, online file uploads, payment integration, and real-time order tracking, PrintEase bridges the digital gap in conventional printing services.
+PrintEase is a modern full-stack web application that simplifies printing workflows for users and local print shops. With user-friendly dashboards, online file uploads, payment integration, and real-time order tracking, PrintEase bridges the digital gap in conventional printing services.
 
 ## ✨ Features Proposed: 
 - 📤 Upload files and place print orders online
