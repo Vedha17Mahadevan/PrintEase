@@ -71,20 +71,30 @@ Node.js (v16+) | npm | MongoDB
 
 ## 🔽 Installation :
 1. Clone the repository  
-   ```git clone https://github.com/<your-username>/printease.git```
-2. Navigate to Project folder
-```cd PrintEase```
-3. Install Backend Dependencies
-```npm install```
-4. Set up environment variables
+   ```bash
+   git clone https://github.com/<your-username>/printease.git
+   ```
+3. Navigate to Project folder
+```bash
+cd PrintEase
+```
+5. Install Backend Dependencies
+```bash
+npm install
+```
+7. Set up environment variables
 Create a .env file in the root directory with the following content:
-```MONGO_URI=your_mongodb_uri```
-```JWT_SECRET=your_secret_key```
-```PORT=5000```
+```bash
+MONGO_URI=your_mongodb_uri
+WT_SECRET=your_secret_key
+PORT=5000
+```
 
 ## 💻 Running the Application :
 1. Start the development server:
-```node server.js```
+```bash
+node server.js
+```
 
 ## 📡 API EndPoints :
 ### Auth Roles
