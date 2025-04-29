@@ -58,10 +58,10 @@ MongoDB
 
 ## Installation :
 1. Clone the repository
-git clone https://github.com/<your-username>/printease.git
-2. Navigate to Project folder
-cd PrintEase
-3. Install Backend Dependencies
+'''git clone https://github.com/<your-username>/printease.git'''
+3. Navigate to Project folder
+'''cd PrintEase'''
+4. Install Backend Dependencies
 Set up environment variables
 Create a .env file in the backend directory:
 ini
@@ -94,9 +94,11 @@ PORT=5000
   ### - Mentor: Ms. Prathibha S Nair
 
 ## 📜 License
-This project is licensed under the MIT License.
+This project is licensed as **Proprietary – All Rights Reserved**.
+No part of this codebase may be copied, used, or modified without written permission from the authors.
 Developed as part of a micro-project at Mar Baselios College of Engineering and Technology (MBCET).
 For any use beyond that, please contact the team.
+Contact - vedhamahadevan@gmail.com | chrisevanthomas736@gmail.com
 
 ## 🌟 Acknowledgements
   - Google Forms Survey Participants
